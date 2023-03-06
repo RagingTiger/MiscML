@@ -19,11 +19,11 @@ docker run -d \
            -e JUPYTER_ENABLE_LAB=yes \
            -p 8888 \
            -v $PWD:/home/jovyan \
-           jupyter/scipy-notebook:lab-3.5.0 && \
+           ghcr.io/ragingtiger/omega-notebook:master && \
 sleep 5 && \
   docker logs misc_ml 2>&1 | grep "http://127.0.0.1" | tail -n 1 | \
-    awk '{print $2}' | sed "s/:8888/:$(docker port misc_ml | \
-    grep '0.0.0.0:' | awk '{print $3'} | sed 's/0.0.0.0://g')/g"
+    sed "s/:8888/:$(docker port misc_ml | grep '0.0.0.0:' | awk '{print $3'} | \
+    sed 's/0.0.0.0://g')/g"
 ```
 Click the link (should look similar to:
 http://127.0.0.1:RANDOM_PORT/lab?token=LONG_ALPHANUMERIC_STRING) which will
