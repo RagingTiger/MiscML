@@ -131,6 +131,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Keras
+.keras/
+
 # other
 reports/
 data/
